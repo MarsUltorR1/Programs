@@ -1,3 +1,4 @@
+package project;
 import java.util.*;
 public class palin_word 
 {
