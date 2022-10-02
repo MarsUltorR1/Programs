@@ -18,9 +18,10 @@ public class palin_word
                 System.exit(0);
             }
         }
-        input=input.substring(0,len-2)+" ";
+        input=input.substring(0,len-1);
+		input +=" ";
         String wrd="",rev="",output="";
-        for(int i=0;i<len-1;i++)
+        for(int i=0;i<len;i++)
         {
             char ch=input.charAt(i);
             if(ch!=' ')
@@ -28,18 +29,25 @@ public class palin_word
                 wrd=wrd+ch;
                 rev=ch+rev;
             }
+			
             else
             {  
+		        rev=rev+" ";
                 if(rev.equalsIgnoreCase(wrd)) 
                 output=output+" "+wrd;
                 else
-                output=output+" "+(wrd+(rev.substring(1,rev.length())));
-                wrd="";
-                rev="";
+				{
+					for(int k=0;k<=rev.length()-1;k++) 
+						if(wrd.charAt(wrd.length()-1)==rev.charAt(k))	
+							rev=rev.substring(k+2,rev.length());
+				}
+				output=output+" "+wrd+rev;
+					wrd="";
+					rev="";
             }
         }
         System.out.println("ORIGNAL STRING :  "+input);
-        System.out.println("CONVERTED STRING :  "+output);
+        System.out.println("CONVERTED STRING :  "+output+" "+wrd);
     }
       
 }
