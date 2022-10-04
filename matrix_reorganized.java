@@ -20,7 +20,12 @@ class matrix_reorganized
         }
         System.out.println("OUTPUT :");
         System.out.println("\n ORIGNAL MATRIX");
-        int lg=A[0][0];int sg=A[0][0];int r1=0;int r2=0;int c1=0;int c2=0;
+        int lg=A[0][0];
+        int sg=A[0][0];
+        int r1=0;
+        int r2=0;
+        int c1=0;
+        int c2=0;
         for(i=0;i<M;i++)
         {
             for(j=0;j<N;j++)
