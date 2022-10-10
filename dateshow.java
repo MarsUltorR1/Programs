@@ -1,6 +1,6 @@
 package project;
 import java.util.Scanner;
-public class dateshow 
+public class changedate
 {
     public void datechange(int d,int y)
     {
@@ -9,7 +9,7 @@ public class dateshow
         int nor[]={31,28,31,30,31,30,31,31,30,31,30,31};
         int count=0;
         int day=0;
-        if(y%4==0)
+        if((y%4==0&&y%100!= 0)||y%400 == 0)
         {
             int i=0;
             while(d>=0)
@@ -52,47 +52,45 @@ public class dateshow
         }
         System.out.println(day+" "+array[count]+" "+y);
     }
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
-        dateshow ob=new dateshow();
-        try (Scanner sc = new Scanner(System.in)) 
+        changedate ob=new changedate();
+        Scanner sc = new Scanner(System.in);
+        System.out.println( "DAY NUMBER :");
+        int day=sc.nextInt();
+        System.out.println("YEAR ");
+        int year=sc.nextInt();
+        ob.datechange(day, year);
+        System.out.println("Date After(N) Days :");
+        int N=sc.nextInt();
+        System.out.println("OUTPUT :");
+        if(N<1||N>100)
         {
-            System.out.println("INPUT  :");
-            System.out.println( "DAY NUMBER :");
-            int day=sc.nextInt();
-            System.out.println("YEAR ");
-            int year=sc.nextInt();
-            System.out.println("Date After(N) Days :");
-            int N=sc.nextInt();
-            System.out.println("OUTPUT :");
-            if(N<1||N>100)
-            {
-                System.out.println("Date After(N) Days Out Of Range");
-                System.exit(0);
-            }
-            if(day<1||day>366)
-            {
-                System.out.println("Day Number Out Of Range");
-                System.exit(0);
-            }
-            ob.datechange(day, year);
-            day=day+N;
-            if(year%4==0)
-            {
-                while(day>366)
-                {
-                    day=day-366; 
-                    year++;  
-                }
-            }
-            else
-                while(day>365)
-                {
-                    day=day-365; 
-                    year++;  
-                }
-                System.out.println("Date After "+N+" Days");
-                ob.datechange(day, year);
+            System.out.println("Date After(N) Days Out Of Range");
+            System.exit(0);
         }
+        if(day<1||day>366)
+        {
+            System.out.println("Day Number Out Of Range");
+            System.exit(0);
+        }
+        ob.datechange(day, year);
+        day=day+N;
+        if(year%4==0)
+        {
+            while(day>366)
+            {
+                day=day-366; 
+                year++;  
+            }
+        }
+        else
+        while(day>365)
+        {
+            day=day-365; 
+            year++;  
+        }
+        System.out.println("Date After "+N+" Days");
+        ob.datechange(day, year);        
     }
 }
