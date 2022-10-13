@@ -9,7 +9,7 @@ public class verticbanner
         if(N<2||N>9)
         {
             System.out.println("Invalid input.");
-            return;
+            System.exit(0);
         }
         int length=0;
         int l=0;
