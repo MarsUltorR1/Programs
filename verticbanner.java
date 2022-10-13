@@ -27,7 +27,7 @@ public class verticbanner
         {
             for(int k=0;k<N;k++)
             {
-                if(i < name[k].length())
+                if(i<name[k].length())
                     System.out.print(name[k].charAt(i) + "\t");
                 else
                     System.out.print("\t");
