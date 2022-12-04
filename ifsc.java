@@ -13,26 +13,19 @@ public class ifsc
         System.out.println("Enter Ifsc code");
         String input=br.readLine();
         String bank=input.substring(0,4);
-        String file="C:/Users/meera/OneDrive/Desktop/Project/data/"+bank+".json";  
+        String file="C:/Users/meera/OneDrive/Desktop/JavaProject/IFSCcode/data/"+bank+".json";  //C:\Users\meera\OneDrive\Desktop\JavaProject\IFSCcode\data
         JSONParser parser = new JSONParser();
         try {
             Object obj = parser.parse(new FileReader(file));
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject code = (JSONObject) jsonObject.get(input);
-            String bank1 = (String) code.get("BANK");
-            System.out.println("Bank Name : "+bank1);
-            String branch = (String) code.get("BRANCH");
-            System.out.println("Branch Name : "+branch);
-            String centre = (String) code.get("CENTRE");
-            System.out.println("Centre : "+centre);
-            String district = (String) code.get("DISTRICT");
-            System.out.println("District : "+district);
-            String state = (String) code.get("STATE");
-            System.out.println("State : "+state);
-            String add = (String) code.get("ADDRESS");
-            System.out.println("Address : "+add);
-            String contact= (String) code.get("CONTACT");
-            System.out.println("Contact Number : "+contact);
+            System.out.println("Bank Name : "+(code.get("BANK")));
+            System.out.println("Branch Name : "+(code.get("BRANCH")));
+            System.out.println("Centre : "+(code.get("CENTRE")));
+            System.out.println("District : "+(code.get("DISTRICT")));
+            System.out.println("State : "+(code.get("STATE")));
+            System.out.println("Address : "+(code.get("ADDRESS")));
+            System.out.println("Contact Number : "+(code.get("CONTACT")));
         }
         catch (IOException e)
          {
